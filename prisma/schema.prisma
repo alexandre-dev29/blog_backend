@@ -5,7 +5,32 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+  output   = "../docs"
+}
+
+generator prismaClassGenerator {
+  provider      = "prisma-class-generator"
+  output        = "../src/generated"
+  dryRun        = false
+  makeIndexFile = false
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Users {
+  id           String   @id @default(cuid())
+  username     String   @db.VarChar(20)
+  fullName     String   @db.VarChar(60)
+  phoneNumber  String   @db.VarChar(20)
+  password     String   @db.VarChar(40)
+  email        String   @db.VarChar(70)
+  biography    String?  @db.Text
+  refreshToken String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
