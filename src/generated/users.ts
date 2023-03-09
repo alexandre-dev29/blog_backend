@@ -1,4 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Role } from '@prisma/client';
 
 export class Users {
   @ApiProperty({ type: String })
@@ -24,6 +25,9 @@ export class Users {
 
   @ApiPropertyOptional({ type: String })
   refreshToken?: string;
+
+  @ApiProperty({ enum: Role, enumName: 'Role' })
+  role: Role = Role.Editor;
 
   @ApiProperty({ type: Date })
   createdAt: Date;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +19,10 @@
       <svg
         fill="none"
         height="40"
-        style="cursor: pointer;"
         viewBox="0 0 109 40"
-        width="109"
+        style="cursor: pointer;"
         xmlns="http://www.w3.org/2000/svg"
+        width="109"
       >
         <g clip-path="url(#clip0)">
           <path
@@ -55,6 +56,7 @@
               <li><a href="#model-Users-email">email</a></li>
               <li><a href="#model-Users-biography">biography</a></li>
               <li><a href="#model-Users-refreshToken">refreshToken</a></li>
+              <li><a href="#model-Users-role">role</a></li>
               <li><a href="#model-Users-createdAt">createdAt</a></li>
               <li><a href="#model-Users-updatedAt">updatedAt</a></li>
             </ul>
@@ -98,25 +100,30 @@
             <li><a href="#type-inputType-UsersUncheckedUpdateManyInput">UsersUncheckedUpdateManyInput</a></li>
             <li><a href="#type-inputType-StringFilter">StringFilter</a></li>
             <li><a href="#type-inputType-StringNullableFilter">StringNullableFilter</a></li>
+            <li><a href="#type-inputType-EnumRoleFilter">EnumRoleFilter</a></li>
             <li><a href="#type-inputType-DateTimeFilter">DateTimeFilter</a></li>
             <li><a href="#type-inputType-UsersCountOrderByAggregateInput">UsersCountOrderByAggregateInput</a></li>
             <li><a href="#type-inputType-UsersMaxOrderByAggregateInput">UsersMaxOrderByAggregateInput</a></li>
             <li><a href="#type-inputType-UsersMinOrderByAggregateInput">UsersMinOrderByAggregateInput</a></li>
             <li><a href="#type-inputType-StringWithAggregatesFilter">StringWithAggregatesFilter</a></li>
             <li><a href="#type-inputType-StringNullableWithAggregatesFilter">StringNullableWithAggregatesFilter</a></li>
+            <li><a href="#type-inputType-EnumRoleWithAggregatesFilter">EnumRoleWithAggregatesFilter</a></li>
             <li><a href="#type-inputType-DateTimeWithAggregatesFilter">DateTimeWithAggregatesFilter</a></li>
             <li><a href="#type-inputType-StringFieldUpdateOperationsInput">StringFieldUpdateOperationsInput</a></li>
             <li><a href="#type-inputType-NullableStringFieldUpdateOperationsInput">NullableStringFieldUpdateOperationsInput</a>
             </li>
+            <li><a href="#type-inputType-EnumRoleFieldUpdateOperationsInput">EnumRoleFieldUpdateOperationsInput</a></li>
             <li><a href="#type-inputType-DateTimeFieldUpdateOperationsInput">DateTimeFieldUpdateOperationsInput</a></li>
             <li><a href="#type-inputType-NestedStringFilter">NestedStringFilter</a></li>
             <li><a href="#type-inputType-NestedStringNullableFilter">NestedStringNullableFilter</a></li>
+            <li><a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a></li>
             <li><a href="#type-inputType-NestedDateTimeFilter">NestedDateTimeFilter</a></li>
             <li><a href="#type-inputType-NestedStringWithAggregatesFilter">NestedStringWithAggregatesFilter</a></li>
             <li><a href="#type-inputType-NestedIntFilter">NestedIntFilter</a></li>
             <li><a href="#type-inputType-NestedStringNullableWithAggregatesFilter">NestedStringNullableWithAggregatesFilter</a>
             </li>
             <li><a href="#type-inputType-NestedIntNullableFilter">NestedIntNullableFilter</a></li>
+            <li><a href="#type-inputType-NestedEnumRoleWithAggregatesFilter">NestedEnumRoleWithAggregatesFilter</a></li>
             <li><a href="#type-inputType-NestedDateTimeWithAggregatesFilter">NestedDateTimeWithAggregatesFilter</a></li>
           </ul>
         </li>
@@ -317,6 +324,26 @@
                 </td>
                 <td class="px-4 py-2 border">
                   No
+                </td>
+                <td class="px-4 py-2 border">
+                  -
+                </td>
+              </tr>
+
+              <tr id="model-Users-role">
+                <td class="px-4 py-2 border">
+                  role
+                </td>
+                <td class="px-4 py-2 border">
+                  <a href="#type-outputType-Role">Role</a>
+                </td>
+                <td class="px-4 py-2 border">
+                  <ul>
+                    <li><strong>@default(Editor)</strong></li>
+                  </ul>
+                </td>
+                <td class="px-4 py-2 border">
+                  <strong>Yes</strong>
                 </td>
                 <td class="px-4 py-2 border">
                   -
@@ -1214,6 +1241,20 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-EnumRoleFilter">EnumRoleFilter</a> | <a
+                    href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -1349,6 +1390,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     refreshToken
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -1525,6 +1579,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     refreshToken
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -1769,6 +1836,20 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-EnumRoleWithAggregatesFilter">EnumRoleWithAggregatesFilter</a> | <a
+                    href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -1915,6 +1996,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -2056,6 +2150,19 @@
 
                   <td class="px-4 py-2 border">
                     <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
                   </td>
                 </tr>
 
@@ -2215,6 +2322,20 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-EnumRoleFieldUpdateOperationsInput">EnumRoleFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -2369,6 +2490,20 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-EnumRoleFieldUpdateOperationsInput">EnumRoleFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -2510,6 +2645,19 @@
 
                   <td class="px-4 py-2 border">
                     <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
                   </td>
                 </tr>
 
@@ -2670,6 +2818,20 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-EnumRoleFieldUpdateOperationsInput">EnumRoleFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -2820,6 +2982,20 @@
 
                   <td class="px-4 py-2 border">
                     <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-EnumRoleFieldUpdateOperationsInput">EnumRoleFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
                   </td>
                 </tr>
 
@@ -3198,6 +3374,74 @@
             </div>
             <hr class="my-4" />
             <div>
+              <h3 class="mb-2 text-xl" id="type-inputType-EnumRoleFilter">EnumRoleFilter</h3>
+              <table class="table-auto">
+                <thead>
+                <tr>
+                  <th class="px-4 py-2 border">Name</th>
+                  <th class="px-4 py-2 border">Type</th>
+                  <th class="px-4 py-2 border">Nullable</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    equals
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    in
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    notIn
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    not
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <hr class="my-4" />
+            <div>
               <h3 class="mb-2 text-xl" id="type-inputType-DateTimeFilter">DateTimeFilter</h3>
               <table class="table-auto">
                 <thead>
@@ -3436,6 +3680,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -3583,6 +3840,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -3718,6 +3988,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     refreshToken
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -4184,6 +4467,115 @@
             </div>
             <hr class="my-4" />
             <div>
+              <h3 class="mb-2 text-xl" id="type-inputType-EnumRoleWithAggregatesFilter">
+                EnumRoleWithAggregatesFilter</h3>
+              <table class="table-auto">
+                <thead>
+                <tr>
+                  <th class="px-4 py-2 border">Name</th>
+                  <th class="px-4 py-2 border">Type</th>
+                  <th class="px-4 py-2 border">Nullable</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    equals
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    in
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    notIn
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    not
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-NestedEnumRoleWithAggregatesFilter">NestedEnumRoleWithAggregatesFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _count
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedIntFilter">NestedIntFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _min
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _max
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <hr class="my-4" />
+            <div>
               <h3 class="mb-2 text-xl" id="type-inputType-DateTimeWithAggregatesFilter">
                 DateTimeWithAggregatesFilter</h3>
               <table class="table-auto">
@@ -4396,6 +4788,36 @@
 
                   <td class="px-4 py-2 border">
                     <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <hr class="my-4" />
+            <div>
+              <h3 class="mb-2 text-xl" id="type-inputType-EnumRoleFieldUpdateOperationsInput">
+                EnumRoleFieldUpdateOperationsInput</h3>
+              <table class="table-auto">
+                <thead>
+                <tr>
+                  <th class="px-4 py-2 border">Name</th>
+                  <th class="px-4 py-2 border">Type</th>
+                  <th class="px-4 py-2 border">Nullable</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    set
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
                   </td>
                 </tr>
 
@@ -4744,6 +5166,74 @@
 
                   <td class="px-4 py-2 border">
                     <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <hr class="my-4" />
+            <div>
+              <h3 class="mb-2 text-xl" id="type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</h3>
+              <table class="table-auto">
+                <thead>
+                <tr>
+                  <th class="px-4 py-2 border">Name</th>
+                  <th class="px-4 py-2 border">Type</th>
+                  <th class="px-4 py-2 border">Nullable</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    equals
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    in
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    notIn
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    not
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
                   </td>
                 </tr>
 
@@ -5512,6 +6002,115 @@
             </div>
             <hr class="my-4" />
             <div>
+              <h3 class="mb-2 text-xl" id="type-inputType-NestedEnumRoleWithAggregatesFilter">
+                NestedEnumRoleWithAggregatesFilter</h3>
+              <table class="table-auto">
+                <thead>
+                <tr>
+                  <th class="px-4 py-2 border">Name</th>
+                  <th class="px-4 py-2 border">Type</th>
+                  <th class="px-4 py-2 border">Nullable</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    equals
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    in
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    notIn
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role[]</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    not
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-Role">Role</a> | <a
+                    href="#type-inputType-NestedEnumRoleWithAggregatesFilter">NestedEnumRoleWithAggregatesFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _count
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedIntFilter">NestedIntFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _min
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    _max
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-NestedEnumRoleFilter">NestedEnumRoleFilter</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <hr class="my-4" />
+            <div>
               <h3 class="mb-2 text-xl" id="type-inputType-NestedDateTimeWithAggregatesFilter">
                 NestedDateTimeWithAggregatesFilter</h3>
               <table class="table-auto">
@@ -5795,6 +6394,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-outputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -5991,6 +6603,19 @@
 
                   <td class="px-4 py-2 border">
                     No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-outputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
                   </td>
                 </tr>
 
@@ -6211,6 +6836,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -6370,6 +7008,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-outputType-Role">Role</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     createdAt
                   </td>
                   <td class="px-4 py-2 border">
@@ -6507,6 +7158,19 @@
                   </td>
                   <td class="px-4 py-2 border">
                     String
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    role
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-outputType-Role">Role</a>
                   </td>
 
                   <td class="px-4 py-2 border">

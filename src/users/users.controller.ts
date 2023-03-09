@@ -6,10 +6,15 @@ import {
   Param,
   Patch,
   Post,
+  Res,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { ApiBody, ApiResponse } from '@nestjs/swagger';
+import { LoginUserDto } from './dto/login-user.dto';
+import { AuthResponse } from '../../types/authTypes';
+import { FastifyReply } from 'fastify';
 
 @Controller('users')
 export class UsersController {
@@ -18,6 +23,23 @@ export class UsersController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @ApiBody({ type: CreateUserDto })
+  @ApiResponse({ type: AuthResponse })
+  @Post('signup')
+  signUp(@Body() signupDto: CreateUserDto) {
+    return this.usersService.signUpUser(signupDto);
+  }
+
+  @ApiBody({ type: LoginUserDto })
+  @ApiResponse({ type: AuthResponse })
+  @Post('loginUser')
+  loginUser(
+    @Body() loginDto: LoginUserDto,
+    @Res({ passthrough: true }) response: FastifyReply,
+  ): Promise<AuthResponse> {
+    return this.usersService.loginUser(loginDto, response);
   }
 
   @Get()

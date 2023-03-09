@@ -11,13 +11,14 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
-
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('Community Blog api')
     .setDescription('A little description to go herejkm')
     .setVersion('1.0')
     .addTag('blog')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
   await app.listen(3005);

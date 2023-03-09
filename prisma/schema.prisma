@@ -23,14 +23,21 @@ datasource db {
 }
 
 model Users {
-  id           String   @id @default(cuid())
-  username     String   @db.VarChar(20)
-  fullName     String   @db.VarChar(60)
-  phoneNumber  String   @db.VarChar(20)
-  password     String   @db.VarChar(40)
-  email        String   @db.VarChar(70)
-  biography    String?  @db.Text
+  id           String  @id @default(cuid())
+  username     String  @db.VarChar(20)
+  fullName     String  @db.VarChar(60)
+  phoneNumber  String  @db.VarChar(20)
+  password     String  @db.VarChar(40)
+  email        String  @db.VarChar(70)
+  biography    String? @db.Text
   refreshToken String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  role         Role    @default(Editor)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  Admin
+  Editor
 }
