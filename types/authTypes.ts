@@ -27,7 +27,8 @@ export class AuthResponse {
   @ApiProperty({ type: String })
   message: string;
   @ApiProperty({ type: String })
-  refreshToken: string;
+  refreshToken?: string;
+  accessToken?: string;
 
   @ApiProperty({ type: PartialType(Users) })
   data: Partial<Users>;

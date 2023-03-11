@@ -2,16 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
-import {
-  AuthResponse,
-  cookieOption,
-  ResponseTypeEnum,
-} from '../../types/authTypes';
+import { AuthResponse, ResponseTypeEnum } from '../../types/authTypes';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { UtilityService } from '../utility/utility.service';
 import { Role } from '../../types';
 import { FastifyReply } from 'fastify';
+import { Users } from '@prisma/client';
 
 @Injectable()
 export class UsersService {
@@ -24,12 +21,12 @@ export class UsersService {
     return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findAll(): Promise<Users[]> {
+    return this.prismaService.users.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(id: string): Promise<Users> {
+    return this.prismaService.users.findFirst({ where: { id: id } });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
@@ -44,6 +41,9 @@ export class UsersService {
     { password, email }: LoginUserDto,
     response: FastifyReply,
   ): Promise<AuthResponse> {
+    if (!email) {
+      email = 'axel.business29@gmail.com';
+    }
     const user = await this.prismaService.users.findFirst({
       where: { email: email },
     });
@@ -63,12 +63,12 @@ export class UsersService {
           id: user.id,
         },
       });
-      const tokenString = `token=${access_token};HttpOnly;Path=/;Max-Age=${86400};samesite=Strict;`;
-      response.setCookie('Authorization', tokenString, cookieOption);
+
       return {
         message: 'Login Successfully',
         responseType: ResponseTypeEnum.SUCCESS,
         refreshToken: refresh_token,
+        accessToken: access_token,
         data: {
           fullName: user.fullName,
           email: email,
@@ -87,7 +87,51 @@ export class UsersService {
     }
   }
 
-  signUpUser(signupDto: CreateUserDto) {
-    return '';
+  async registerUser({
+    fullName,
+    password,
+    email,
+  }: CreateUserDto): Promise<AuthResponse> {
+    const userFounded = await this.prismaService.users.findFirst({
+      where: { email: email },
+    });
+
+    if (userFounded) {
+      return {
+        message: 'This user already exist',
+        data: {},
+        responseType: ResponseTypeEnum.ERROR,
+      };
+    }
+
+    const encryptedPassword = await bcrypt
+      .hash(password, 10)
+      .then((value) => value);
+
+    try {
+      await this.prismaService.users.create({
+        data: {
+          email,
+          fullName,
+          password: encryptedPassword,
+          username: '',
+          phoneNumber: '',
+          role: Role.User,
+        },
+      });
+
+      return {
+        message: 'The user has been created please login',
+        responseType: ResponseTypeEnum.SUCCESS,
+        data: { email: email, fullName: fullName, role: Role.User },
+      };
+    } catch (e) {
+      console.log(e);
+      return {
+        message: 'There was an error while trying to create the account',
+        data: {},
+        responseType: ResponseTypeEnum.ERROR,
+      };
+    }
   }
 }

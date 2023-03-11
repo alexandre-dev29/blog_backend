@@ -29,17 +29,22 @@ export class UsersController {
   @ApiResponse({ type: AuthResponse })
   @Post('signup')
   signUp(@Body() signupDto: CreateUserDto) {
-    return this.usersService.signUpUser(signupDto);
+    return this.usersService.registerUser(signupDto);
   }
 
   @ApiBody({ type: LoginUserDto })
   @ApiResponse({ type: AuthResponse })
   @Post('loginUser')
-  loginUser(
+  async loginUser(
     @Body() loginDto: LoginUserDto,
     @Res({ passthrough: true }) response: FastifyReply,
   ): Promise<AuthResponse> {
-    return this.usersService.loginUser(loginDto, response);
+    const values = await this.usersService.loginUser(loginDto, response);
+    const tokenString = `token=${
+      values.accessToken
+    };HttpOnly;Path=/;Max-Age=${86400};samesite=Strict;`;
+    response.header('Set-Cookie', tokenString);
+    return { ...values, accessToken: '' };
   }
 
   @Get()

@@ -11,7 +11,9 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
+
   app.enableCors();
+  // await app.register(fastifyCookie, { secret: '' });
   const config = new DocumentBuilder()
     .setTitle('Community Blog api')
     .setDescription('A little description to go herejkm')

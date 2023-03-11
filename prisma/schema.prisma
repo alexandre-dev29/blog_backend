@@ -24,10 +24,10 @@ datasource db {
 
 model Users {
   id           String  @id @default(cuid())
-  username     String  @db.VarChar(20)
+  username     String? @db.VarChar(20)
   fullName     String  @db.VarChar(60)
-  phoneNumber  String  @db.VarChar(20)
-  password     String  @db.VarChar(40)
+  phoneNumber  String? @db.VarChar(40)
+  password     String  @db.Text
   email        String  @db.VarChar(70)
   biography    String? @db.Text
   refreshToken String?

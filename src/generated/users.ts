@@ -5,14 +5,14 @@ export class Users {
   @ApiProperty({ type: String })
   id: string;
 
-  @ApiProperty({ type: String })
-  username: string;
+  @ApiPropertyOptional({ type: String })
+  username?: string;
 
   @ApiProperty({ type: String })
   fullName: string;
 
-  @ApiProperty({ type: String })
-  phoneNumber: string;
+  @ApiPropertyOptional({ type: String })
+  phoneNumber?: string;
 
   @ApiProperty({ type: String })
   password: string;
