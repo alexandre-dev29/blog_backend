@@ -13,7 +13,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
-import { AuthResponse } from '../../types/authTypes';
+import { AuthResponse } from '../../types';
 import { FastifyReply } from 'fastify';
 
 @Controller('users')
