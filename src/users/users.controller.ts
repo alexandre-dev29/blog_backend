@@ -39,7 +39,7 @@ export class UsersController {
     @Body() loginDto: LoginUserDto,
     @Res({ passthrough: true }) response: FastifyReply,
   ): Promise<AuthResponse> {
-    const values = await this.usersService.loginUser(loginDto, response);
+    const values = await this.usersService.loginUser(loginDto);
     const tokenString = `token=${
       values.accessToken
     };HttpOnly;Path=/;Max-Age=${86400};samesite=Strict;`;
@@ -54,16 +54,16 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+    return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+    return this.usersService.remove(id);
   }
 }

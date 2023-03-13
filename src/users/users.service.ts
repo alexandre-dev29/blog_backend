@@ -2,11 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
-import { AuthResponse, ResponseTypeEnum } from '../../types/authTypes';
+import { AuthResponse, ResponseTypeEnum, Role } from '../../types';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { UtilityService } from '../utility/utility.service';
-import { Role } from '../../types';
 import { Users } from '@prisma/client';
 
 @Injectable()
