@@ -7,7 +7,6 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { UtilityService } from '../utility/utility.service';
 import { Role } from '../../types';
-import { FastifyReply } from 'fastify';
 import { Users } from '@prisma/client';
 
 @Injectable()
@@ -29,18 +28,18 @@ export class UsersService {
     return this.prismaService.users.findFirst({ where: { id: id } });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  update(id: string, updateUserDto: UpdateUserDto): Promise<Users> {
+    return this.prismaService.users.update({
+      where: { id: id },
+      data: updateUserDto,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(id: string): Promise<Users> {
+    return this.prismaService.users.delete({ where: { id: id } });
   }
 
-  async loginUser(
-    { password, email }: LoginUserDto,
-    response: FastifyReply,
-  ): Promise<AuthResponse> {
+  async loginUser({ password, email }: LoginUserDto): Promise<AuthResponse> {
     if (!email) {
       email = 'axel.business29@gmail.com';
     }
