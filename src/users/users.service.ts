@@ -20,7 +20,7 @@ export class UsersService {
   }
 
   findAll(): Promise<Users[]> {
-    return this.prismaService.users.findMany();
+    return this.prismaService.users.findMany({});
   }
 
   findOne(id: string): Promise<Users> {

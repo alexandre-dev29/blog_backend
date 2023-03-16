@@ -12,8 +12,9 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
-  app.enableCors();
-  // await app.register(fastifyCookie, { secret: '' });
+  app.enableCors({ credentials: true, origin: ['http://localhost:3000'] });
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  await app.register(require('@fastify/cookie'), { secret: '' });
   const config = new DocumentBuilder()
     .setTitle('Community Blog api')
     .setDescription('A little description to go herejkm')

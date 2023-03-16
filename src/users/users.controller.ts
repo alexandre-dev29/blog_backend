@@ -7,14 +7,18 @@ import {
   Patch,
   Post,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
-import { AuthResponse } from '../../types';
+import { AuthResponse, cookieOption, UserSecurity } from '../../types';
 import { FastifyReply } from 'fastify';
+import { MyAuthGuard } from '../auth/auth.guard';
+import { CurrentUser } from '../auth/user.decorator';
+import { Users } from '../generated/users';
 
 @Controller('users')
 export class UsersController {
@@ -40,21 +44,26 @@ export class UsersController {
     @Res({ passthrough: true }) response: FastifyReply,
   ): Promise<AuthResponse> {
     const values = await this.usersService.loginUser(loginDto);
-    const tokenString = `token=${
-      values.accessToken
-    };HttpOnly;Path=/;Max-Age=${86400};samesite=Strict;`;
-    response.header('Set-Cookie', tokenString);
+    response.setCookie('token', values.accessToken, cookieOption);
     return { ...values, accessToken: '' };
   }
 
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  @UseGuards(MyAuthGuard)
+  async findAll(@CurrentUser() currentUser: UserSecurity) {
+    let allUsers = await this.usersService.findAll();
+    allUsers = allUsers.map((value) => ({
+      ...value,
+      password: '',
+      refreshToken: '',
+    }));
+    return allUsers;
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+  async findOne(@Param('id') id: string): Promise<Users> {
+    const userGet = await this.usersService.findOne(id);
+    return { ...userGet, password: '', refreshToken: '' };
   }
 
   @Patch(':id')

@@ -23,6 +23,7 @@ export class UtilityService {
           roles,
           fullName,
           email,
+          id,
         },
         {
           expiresIn: 60 * 60 * 24,

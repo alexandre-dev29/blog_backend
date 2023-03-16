@@ -8,6 +8,7 @@ import { Role, UserSecurity } from '../types';
 import { CaslModule } from 'nest-casl';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConfigService } from '@nestjs/config';
       superuserRole: Role.Admin,
       getUserFromRequest: (request) => request.user,
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
