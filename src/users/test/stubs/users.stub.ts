@@ -14,5 +14,6 @@ export const usersStub = (): Users => {
     phoneNumber: '+2438694746284',
     refreshToken: '',
     biography: 'i am a software engineer',
+    Posts: [],
   };
 };

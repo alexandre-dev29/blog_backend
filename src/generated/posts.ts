@@ -1,9 +1,9 @@
 import { Tags } from './tags';
 import { Users } from './users';
-import { Category } from './category';
+import { Categories } from './categories';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
-export class Post {
+export class Posts {
   @ApiProperty({ type: String })
   id: string;
 
@@ -49,8 +49,8 @@ export class Post {
   @ApiProperty({ type: Date })
   updatedAt: Date;
 
-  @ApiPropertyOptional({ type: () => Category })
-  Category?: Category;
+  @ApiPropertyOptional({ type: () => Categories })
+  Category?: Categories;
 
   @ApiPropertyOptional({ type: String })
   categoryId?: string;

@@ -23,8 +23,11 @@ export class UsersService {
     return this.prismaService.users.findMany({});
   }
 
-  findOne(id: string): Promise<Users> {
-    return this.prismaService.users.findFirst({ where: { id: id } });
+  findOne(id: string) {
+    return this.prismaService.users.findFirst({
+      where: { id: id },
+      include: { Posts: true },
+    });
   }
 
   update(id: string, updateUserDto: UpdateUserDto): Promise<Users> {

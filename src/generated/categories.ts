@@ -1,7 +1,7 @@
-import { Post } from './post';
+import { Posts } from './posts';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class Category {
+export class Categories {
   @ApiProperty({ type: String })
   id: string;
 
@@ -17,8 +17,8 @@ export class Category {
   @ApiProperty({ type: String })
   categorySlug: string;
 
-  @ApiProperty({ isArray: true, type: () => Post })
-  posts: Post[];
+  @ApiProperty({ isArray: true, type: () => Posts })
+  posts: Posts[];
 
   @ApiProperty({ type: Date })
   createdAt: Date;

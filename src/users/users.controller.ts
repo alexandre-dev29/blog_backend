@@ -14,20 +14,21 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiBody, ApiResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
-import { AuthResponse, cookieOption, UserSecurity } from '../../types';
+import {
+  AuthResponse,
+  cookieOption,
+  SecurityActions,
+  UserSecurity,
+} from '../../types';
 import { FastifyReply } from 'fastify';
 import { MyAuthGuard } from '../auth/auth.guard';
 import { CurrentUser } from '../auth/user.decorator';
 import { Users } from '../generated/users';
+import { AccessGuard, UseAbility } from 'nest-casl';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
-
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
-  }
 
   @ApiBody({ type: CreateUserDto })
   @ApiResponse({ type: AuthResponse })
@@ -49,7 +50,8 @@ export class UsersController {
   }
 
   @Get()
-  @UseGuards(MyAuthGuard)
+  @UseGuards(MyAuthGuard, AccessGuard)
+  @UseAbility(SecurityActions.readAll, Users)
   async findAll(@CurrentUser() currentUser: UserSecurity) {
     let allUsers = await this.usersService.findAll();
     allUsers = allUsers.map((value) => ({
@@ -61,17 +63,23 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Users> {
+  @UseGuards(MyAuthGuard, AccessGuard)
+  @UseAbility(SecurityActions.readOne, Users)
+  async findOne(@Param('id') id: string) {
     const userGet = await this.usersService.findOne(id);
     return { ...userGet, password: '', refreshToken: '' };
   }
 
   @Patch(':id')
+  @UseGuards(MyAuthGuard, AccessGuard)
+  @UseAbility(SecurityActions.readOne, Users)
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
+  @UseGuards(MyAuthGuard, AccessGuard)
+  @UseAbility(SecurityActions.readOne, Users)
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }

@@ -18,7 +18,7 @@ export const cookieOption: CookieSerializeOptions = {
   sameSite: 'strict',
   path: '/',
   priority: 'high',
-  maxAge: parseInt(process.env.JWT_ACCESS_EXPIRATION),
+  maxAge: 60 * 60 * 24,
 };
 
 export class AuthResponse {

@@ -1,4 +1,4 @@
-import { Post } from './post';
+import { Posts } from './posts';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class Tags {
@@ -8,8 +8,8 @@ export class Tags {
   @ApiProperty({ type: String })
   tagName: string;
 
-  @ApiProperty({ isArray: true, type: () => Post })
-  Aticles: Post[];
+  @ApiProperty({ isArray: true, type: () => Posts })
+  Aticles: Posts[];
 
   @ApiProperty({ type: Date })
   createdAt: Date;
