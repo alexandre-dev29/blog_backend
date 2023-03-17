@@ -23,16 +23,56 @@ datasource db {
 }
 
 model Users {
-  id           String  @id @default(cuid())
-  username     String? @db.VarChar(20)
-  fullName     String  @db.VarChar(60)
-  phoneNumber  String? @db.VarChar(40)
-  password     String  @db.Text
-  email        String  @db.VarChar(70)
-  biography    String? @db.Text
+  id           String   @id @default(cuid())
+  username     String?  @db.VarChar(20)
+  fullName     String   @db.VarChar(60)
+  phoneNumber  String?  @db.VarChar(40)
+  password     String   @db.Text
+  avatarImage  String?  @db.Text
+  email        String   @db.VarChar(70)
+  biography    String?  @db.Text
   refreshToken String?
-  role         Role    @default(Editor)
+  role         Role     @default(Editor)
+  Posts        Post[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
 
+model Category {
+  id                  String   @id @default(cuid())
+  categoryName        String
+  categoryDescription String   @db.Text
+  mainImageUrl        String   @db.Text
+  categorySlug        String   @unique
+  posts               Post[]
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model Post {
+  id              String    @id @default(cuid())
+  postTitle       String
+  postDescription String    @db.Text
+  postViewCount   Int       @default(0)
+  postSlug        String    @unique
+  postMainImage   String    @db.Text
+  authorId        String
+  Tags            Tags[]
+  isPublished     Boolean   @default(false)
+  isFeatured      Boolean   @default(false)
+  publishedAt     DateTime?
+  postContent     String    @db.Text
+  author          Users     @relation(fields: [authorId], references: [id])
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  Category        Category? @relation(fields: [categoryId], references: [id])
+  categoryId      String?
+}
+
+model Tags {
+  id        String   @id @default(cuid())
+  tagName   String
+  Aticles   Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

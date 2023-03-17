@@ -9,6 +9,8 @@ import { CaslModule } from 'nest-casl';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { PostsModule } from './posts/posts.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { AuthModule } from './auth/auth.module';
       getUserFromRequest: (request) => request.user,
     }),
     AuthModule,
+    PostsModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [

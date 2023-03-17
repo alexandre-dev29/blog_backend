@@ -1,3 +1,4 @@
+import { Post } from './post';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Role } from '@prisma/client';
 
@@ -17,6 +18,9 @@ export class Users {
   @ApiProperty({ type: String })
   password: string;
 
+  @ApiPropertyOptional({ type: String })
+  avatarImage?: string;
+
   @ApiProperty({ type: String })
   email: string;
 
@@ -28,6 +32,9 @@ export class Users {
 
   @ApiProperty({ enum: Role, enumName: 'Role' })
   role: Role = Role.Editor;
+
+  @ApiProperty({ isArray: true, type: () => Post })
+  Posts: Post[];
 
   @ApiProperty({ type: Date })
   createdAt: Date;
