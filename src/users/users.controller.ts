@@ -31,9 +31,10 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @ApiBody({ type: CreateUserDto })
-  @ApiResponse({ type: AuthResponse })
-  @Post('signup')
-  signUp(@Body() signupDto: CreateUserDto) {
+  @Post()
+  @UseGuards(MyAuthGuard, AccessGuard)
+  @UseAbility(SecurityActions.create, Users)
+  create(@Body() signupDto: CreateUserDto) {
     return this.usersService.registerUser(signupDto);
   }
 
@@ -67,6 +68,13 @@ export class UsersController {
   @UseAbility(SecurityActions.readOne, Users)
   async findOne(@Param('id') id: string) {
     const userGet = await this.usersService.findOne(id);
+    return { ...userGet, password: '', refreshToken: '' };
+  }
+
+  @Get('me')
+  @UseGuards(MyAuthGuard)
+  async me(@CurrentUser() currentUser: UserSecurity) {
+    const userGet = await this.usersService.findOne(currentUser.id);
     return { ...userGet, password: '', refreshToken: '' };
   }
 

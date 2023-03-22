@@ -9,5 +9,5 @@ export class UserSecurity implements AuthorizableUser<Role, string> {
 
 export enum Role {
   Admin = 'Admin',
-  User = 'Editor',
+  Editor = 'Editor',
 }

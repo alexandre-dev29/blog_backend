@@ -76,6 +76,8 @@ export class UsersService {
           id: user.id,
           role: user.role,
           phoneNumber: user.phoneNumber,
+          username: user.username,
+          avatarImage: user.avatarImage,
         },
       } as AuthResponse;
     } else {
@@ -92,47 +94,46 @@ export class UsersService {
     fullName,
     password,
     email,
-  }: CreateUserDto): Promise<AuthResponse> {
-    const userFounded = await this.prismaService.users.findFirst({
-      where: { email: email },
-    });
-
-    if (userFounded) {
-      return {
-        message: 'This user already exist',
-        data: {},
-        responseType: ResponseTypeEnum.ERROR,
-      };
-    }
-
-    const encryptedPassword = await bcrypt
-      .hash(password, 10)
-      .then((value) => value);
-
+    userTitle,
+    phoneNumber,
+    biography,
+    avatarImage,
+  }: CreateUserDto) {
     try {
+      const userFounded = await this.prismaService.users.findFirst({
+        where: { email: email },
+      });
+
+      if (userFounded) {
+        return new Error(
+          'This Email already exist please try to register with another',
+        );
+      }
+
+      const encryptedPassword = await bcrypt
+        .hash(password, 10)
+        .then((value) => value);
       await this.prismaService.users.create({
         data: {
           email,
           fullName,
+          userTitle,
+          phoneNumber,
+          biography,
+          avatarImage,
           password: encryptedPassword,
-          username: '',
-          phoneNumber: '',
-          role: Role.User,
+          role: Role.Editor,
         },
       });
 
       return {
         message: 'The user has been created please login',
         responseType: ResponseTypeEnum.SUCCESS,
-        data: { email: email, fullName: fullName, role: Role.User },
+        data: { email: email, fullName: fullName, role: Role.Editor },
       };
     } catch (e) {
       console.log(e);
-      return {
-        message: 'There was an error while trying to create the account',
-        data: {},
-        responseType: ResponseTypeEnum.ERROR,
-      };
+      return new Error(e.message);
     }
   }
 }
