@@ -11,7 +11,8 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
-  const port = process.env.PORT || 3005;
+  const port = process.env.PORT;
+  console.log(port);
 
   app.enableCors({ credentials: true, origin: ['http://localhost:3000'] });
   // eslint-disable-next-line @typescript-eslint/no-var-requires
