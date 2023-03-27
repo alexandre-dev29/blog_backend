@@ -1,22 +1,14 @@
-import { NestFactory } from '@nestjs/core';
+import { NestApplication, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter(),
-  );
+  const app = await NestFactory.create<NestApplication>(AppModule);
   const port = process.env.PORT;
-  console.log(port);
 
   app.enableCors({ credentials: true, origin: ['http://localhost:3000'] });
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  await app.register(require('@fastify/cookie'), { secret: '' });
+  app.use(cookieParser());
   const config = new DocumentBuilder()
     .setTitle('Community Blog api')
     .setDescription('A little description to go herejkm')

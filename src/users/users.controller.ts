@@ -21,11 +21,11 @@ import {
   SecurityActions,
   UserSecurity,
 } from '../../types';
-import { FastifyReply } from 'fastify';
 import { MyAuthGuard } from '../auth/auth.guard';
 import { CurrentUser } from '../auth/user.decorator';
 import { Users } from '../generated/users';
 import { AccessGuard, UseAbility } from 'nest-casl';
+import { Response } from 'express';
 
 @Controller('users')
 export class UsersController {
@@ -44,10 +44,10 @@ export class UsersController {
   @Post('loginUser')
   async loginUser(
     @Body() loginDto: LoginUserDto,
-    @Res({ passthrough: true }) response: FastifyReply,
+    @Res({ passthrough: true }) response: Response,
   ): Promise<AuthResponse> {
     const values = await this.usersService.loginUser(loginDto);
-    response.setCookie('token', values.accessToken, cookieOption);
+    response.cookie('token', values.accessToken, cookieOption);
     return { ...values, accessToken: '' };
   }
 
@@ -96,9 +96,9 @@ export class UsersController {
   @Post('logoutUser')
   async logoutUser(
     @Body() loginDto: LoginUserDto,
-    @Res({ passthrough: true }) response: FastifyReply,
+    @Res({ passthrough: true }) response: Response,
   ): Promise<AuthResponse> {
-    response.setCookie('token', '', {
+    response.cookie('token', '', {
       httpOnly: true,
       path: '/',
       sameSite: true,

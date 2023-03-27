@@ -1,6 +1,6 @@
 import { Users } from '../src/generated/users';
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { CookieSerializeOptions } from '@fastify/cookie';
+import { CookieOptions } from 'express';
 
 export enum ResponseTypeEnum {
   SUCCESS,
@@ -11,14 +11,14 @@ export type Tokens = {
   access_token: string;
   refresh_token: string;
 };
-export const cookieOption: CookieSerializeOptions = {
+export const cookieOption: CookieOptions = {
   domain: process.env.domainclient,
   httpOnly: true,
   secure: false,
   sameSite: 'strict',
   path: '/',
-  priority: 'high',
-  maxAge: 60 * 60 * 24,
+  maxAge: 24 * 60 * 60 * 1000,
+  expires: new Date(new Date().setDate(new Date().getDate() + 1)),
 };
 
 export class AuthResponse {
