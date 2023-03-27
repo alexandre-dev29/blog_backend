@@ -11,6 +11,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
+  const port = process.env.PORT || 3005;
 
   app.enableCors({ credentials: true, origin: ['http://localhost:3000'] });
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -24,7 +25,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  await app.listen(process.env.PORT);
+  await app.listen(port);
 }
 
 bootstrap();
