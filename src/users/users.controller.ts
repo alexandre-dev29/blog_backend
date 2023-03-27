@@ -17,6 +17,7 @@ import { LoginUserDto } from './dto/login-user.dto';
 import {
   AuthResponse,
   cookieOption,
+  ResponseTypeEnum,
   SecurityActions,
   UserSecurity,
 } from '../../types';
@@ -90,5 +91,23 @@ export class UsersController {
   @UseAbility(SecurityActions.readOne, Users)
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
+  }
+
+  @Post('logoutUser')
+  async logoutUser(
+    @Body() loginDto: LoginUserDto,
+    @Res({ passthrough: true }) response: FastifyReply,
+  ): Promise<AuthResponse> {
+    response.setCookie('token', '', {
+      httpOnly: true,
+      path: '/',
+      sameSite: true,
+      expires: new Date(),
+    });
+    return {
+      message: 'logout successfully',
+      data: {},
+      responseType: ResponseTypeEnum.SUCCESS,
+    };
   }
 }

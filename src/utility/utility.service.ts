@@ -44,4 +44,20 @@ export class UtilityService {
       refresh_token: refreshToken,
     } as Tokens;
   };
+
+  generateSlug(title: string): string {
+    // Replace any non-word characters with a hyphen
+    const slug = title
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w ]+/g, '-');
+
+    // Replace any non-word characters with a hyphen
+    const trimmedSlug = slug.replace(/[^\w-]+/g, '');
+    // Append a random string of characters to the slug
+    const randomString = Math.random().toString(36).slice(2, 8);
+    const finalSlug = `${trimmedSlug}-${randomString}`;
+
+    return finalSlug;
+  }
 }
