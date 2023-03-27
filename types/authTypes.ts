@@ -15,7 +15,7 @@ export const cookieOption: CookieOptions = {
   domain: process.env.domainclient,
   httpOnly: true,
   secure: false,
-  sameSite: 'strict',
+  sameSite: 'lax',
   path: '/',
   maxAge: 24 * 60 * 60 * 1000,
   expires: new Date(new Date().setDate(new Date().getDate() + 1)),
