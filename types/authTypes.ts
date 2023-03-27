@@ -14,7 +14,7 @@ export type Tokens = {
 export const cookieOption: CookieOptions = {
   domain: process.env.domainclient,
   httpOnly: true,
-  secure: false,
+  secure: true,
   sameSite: 'none',
   path: '/',
   maxAge: 24 * 60 * 60 * 1000,
