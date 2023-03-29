@@ -12,8 +12,8 @@ export type Tokens = {
   refresh_token: string;
 };
 export const cookieOption: CookieOptions = {
-  domain: process.env.domainclient,
-  httpOnly: false,
+  domain: process.env.DOMAINNAME,
+  httpOnly: true,
   secure: true,
   path: '/',
   sameSite: 'none',
