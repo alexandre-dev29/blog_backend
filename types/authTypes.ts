@@ -13,7 +13,7 @@ export type Tokens = {
 };
 export const cookieOption: CookieOptions = {
   domain: process.env.domainclient,
-  httpOnly: true,
+  httpOnly: false,
   secure: true,
   path: '/',
   sameSite: 'none',
