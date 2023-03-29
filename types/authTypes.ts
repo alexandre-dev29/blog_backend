@@ -16,6 +16,7 @@ export const cookieOption: CookieOptions = {
   httpOnly: true,
   secure: false,
   path: '/',
+  sameSite: false,
   maxAge: 24 * 60 * 60 * 1000,
   expires: new Date(new Date().setDate(new Date().getDate() + 1)),
 };
