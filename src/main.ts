@@ -7,7 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create<NestApplication>(AppModule);
   const port = process.env.PORT;
 
-  app.enableCors({ credentials: true, origin: [`${process.env.FRONT_URL}`] });
+  app.enableCors({
+    credentials: true,
+    origin: [`${process.env.FRONT_URL}`, '*'],
+  });
   app.use(cookieParser());
   const config = new DocumentBuilder()
     .setTitle('Community Blog api')

@@ -72,10 +72,11 @@ export class UsersController {
     return { ...userGet, password: '', refreshToken: '' };
   }
 
-  @Get('me')
+  @Get('profile/me')
   @UseGuards(MyAuthGuard)
   async me(@CurrentUser() currentUser: UserSecurity) {
     const userGet = await this.usersService.findOne(currentUser.id);
+    console.log(userGet);
     return { ...userGet, password: '', refreshToken: '' };
   }
 
