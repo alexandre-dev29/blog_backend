@@ -4,6 +4,7 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import { Role, UserSecurity } from '../../types';
 import { UtilityService } from '../utility/utility.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { SetPublishedDto } from './dto/setPublished.dto';
 
 @Injectable()
 export class PostsService {
@@ -62,15 +63,40 @@ export class PostsService {
         });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  findOne(id: string) {
+    return this.prismaService.posts.findUnique({ where: { id: id } });
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  update(
+    id: string,
+    {
+      postTitle,
+      postDescription,
+      postContent,
+      postMainImage,
+      categoryId,
+    }: UpdatePostDto,
+  ) {
+    return this.prismaService.posts.update({
+      where: { id },
+      data: {
+        postTitle,
+        postDescription,
+        postContent,
+        postMainImage,
+        categoryId,
+      },
+    });
   }
 
   remove(id: number) {
     return `This action removes a #${id} post`;
+  }
+
+  updatePublishStatus({ isPublished, id }: SetPublishedDto) {
+    return this.prismaService.posts.update({
+      where: { id },
+      data: { isPublished },
+    });
   }
 }

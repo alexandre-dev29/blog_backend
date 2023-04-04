@@ -5,8 +5,11 @@ import { PrismaService } from '../prisma/prisma.service';
 import { UtilityService } from '../utility/utility.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { CaslModule } from 'nest-casl';
+import { postsPermissions } from './posts.permissions';
 
 @Module({
+  imports: [CaslModule.forFeature({ permissions: postsPermissions })],
   controllers: [PostsController],
   providers: [
     PostsService,
