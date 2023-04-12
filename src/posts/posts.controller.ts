@@ -32,9 +32,14 @@ export class PostsController {
   }
 
   @Get()
+  findAll() {
+    return this.postsService.findAll();
+  }
+
+  @Get('getPosts/allPosts')
   @UseGuards(MyAuthGuard)
-  findAll(@CurrentUser() currentUser: UserSecurity) {
-    return this.postsService.findAll(currentUser);
+  allPosts(@CurrentUser() currentUser: UserSecurity) {
+    return this.postsService.findAllByConnected(currentUser);
   }
 
   @Get(':id')

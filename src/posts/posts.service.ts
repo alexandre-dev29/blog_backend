@@ -53,7 +53,14 @@ export class PostsService {
     });
   }
 
-  findAll(currentUser: UserSecurity) {
+  findAll() {
+    return this.prismaService.posts.findMany({
+      include: { author: true, Category: true, Tags: true },
+      where: { isPublished: true },
+    });
+  }
+
+  findAllByConnected(currentUser: UserSecurity) {
     return currentUser.roles[0] === Role.Admin
       ? this.prismaService.posts.findMany({
           include: { author: true, Category: true, Tags: true },
@@ -96,7 +103,7 @@ export class PostsService {
   updatePublishStatus({ isPublished, id }: SetPublishedDto) {
     return this.prismaService.posts.update({
       where: { id },
-      data: { isPublished },
+      data: { isPublished, publishedAt: new Date() },
     });
   }
 }
