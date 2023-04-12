@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: VpsPool
+  name: VpsPool
 
 steps:
 - task: NodeTool@0
