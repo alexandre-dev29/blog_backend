@@ -53,11 +53,18 @@ export class PostsService {
     });
   }
 
-  findAll() {
-    return this.prismaService.posts.findMany({
+  async findAll() {
+    const allPosts = await this.prismaService.posts.findMany({
       include: { author: true, Category: true, Tags: true },
       where: { isPublished: true },
     });
+    const transformed = allPosts.map((value) => {
+      const author = value.author;
+      author.password = '';
+      author.refreshToken = '';
+      return { ...value, author: author };
+    });
+    return transformed;
   }
 
   findBySlug(postSlug: string) {
