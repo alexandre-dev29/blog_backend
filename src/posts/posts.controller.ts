@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
@@ -34,6 +35,11 @@ export class PostsController {
   @Get()
   findAll() {
     return this.postsService.findAll();
+  }
+
+  @Get('getPosts/getPostsBySlug')
+  postBySlug(@Query('slug') slug: string) {
+    return this.postsService.findBySlug(slug);
   }
 
   @Get('getPosts/allPosts')

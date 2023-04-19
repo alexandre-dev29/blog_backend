@@ -60,6 +60,13 @@ export class PostsService {
     });
   }
 
+  findBySlug(postSlug: string) {
+    return this.prismaService.posts.findUnique({
+      include: { author: true, Category: true, Tags: true },
+      where: { postSlug },
+    });
+  }
+
   findAllByConnected(currentUser: UserSecurity) {
     return currentUser.roles[0] === Role.Admin
       ? this.prismaService.posts.findMany({
