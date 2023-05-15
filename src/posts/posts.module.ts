@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { CaslModule } from 'nest-casl';
 import { postsPermissions } from './posts.permissions';
+import { RedisService } from './redis/redis.service';
 
 @Module({
   imports: [CaslModule.forFeature({ permissions: postsPermissions })],
@@ -17,6 +18,7 @@ import { postsPermissions } from './posts.permissions';
     UtilityService,
     JwtService,
     ConfigService,
+    RedisService,
   ],
 })
 export class PostsModule {}

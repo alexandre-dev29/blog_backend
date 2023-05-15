@@ -55,6 +55,8 @@ model Posts {
   postTitle       String
   postDescription String      @db.Text
   postViewCount   Int         @default(0)
+  postTotalLikes  Int         @default(0)
+  postTotalShares Int         @default(0)
   postSlug        String      @unique
   postMainImage   String      @db.Text
   authorId        String
@@ -74,6 +76,23 @@ model Tags {
   id        String   @id @default(cuid())
   tagName   String
   Aticles   Posts[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscribers {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserVisites {
+  id        String   @id @default(cuid())
+  sessionId String
+  ipAddress String
+  device    String
+  location  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

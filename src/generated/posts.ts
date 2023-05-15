@@ -16,6 +16,12 @@ export class Posts {
   @ApiProperty({ type: Number })
   postViewCount: number;
 
+  @ApiProperty({ type: Number })
+  postTotalLikes: number;
+
+  @ApiProperty({ type: Number })
+  postTotalShares: number;
+
   @ApiProperty({ type: String })
   postSlug: string;
 
