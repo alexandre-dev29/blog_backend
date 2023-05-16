@@ -57,6 +57,7 @@ model Posts {
   postViewCount   Int         @default(0)
   postTotalLikes  Int         @default(0)
   postTotalShares Int         @default(0)
+  postReadTime    Int         @default(0)
   postSlug        String      @unique
   postMainImage   String      @db.Text
   authorId        String

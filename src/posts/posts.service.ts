@@ -5,6 +5,8 @@ import { Role, UserSecurity } from '../../types';
 import { UtilityService } from '../utility/utility.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { SetPublishedDto } from './dto/setPublished.dto';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const readingTime = require('reading-time');
 
 @Injectable()
 export class PostsService {
@@ -36,6 +38,7 @@ export class PostsService {
         select: { id: true },
       });
     }
+    const read = readingTime(postContent);
 
     return this.prismaService.posts.create({
       data: {
@@ -46,6 +49,7 @@ export class PostsService {
         postDescription,
         categoryId,
         authorId: currentUser.id,
+        postReadTime: Math.round(read.minutes),
         isFeatured: false,
         isPublished: false,
         postViewCount: 0,
@@ -98,12 +102,14 @@ export class PostsService {
       categoryId,
     }: UpdatePostDto,
   ) {
+    const read = readingTime(postContent);
     return this.prismaService.posts.update({
       where: { id },
       data: {
         postTitle,
         postDescription,
         postContent,
+        postReadTime: Math.round(read.minutes),
         postMainImage,
         categoryId,
       },

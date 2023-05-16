@@ -130,6 +130,7 @@
               <li><a href="#model-Posts-postViewCount">postViewCount</a></li>
               <li><a href="#model-Posts-postTotalLikes">postTotalLikes</a></li>
               <li><a href="#model-Posts-postTotalShares">postTotalShares</a></li>
+              <li><a href="#model-Posts-postReadTime">postReadTime</a></li>
               <li><a href="#model-Posts-postSlug">postSlug</a></li>
               <li><a href="#model-Posts-postMainImage">postMainImage</a></li>
               <li><a href="#model-Posts-authorId">authorId</a></li>
@@ -2607,6 +2608,26 @@
               <tr id="model-Posts-postTotalShares">
                 <td class="px-4 py-2 border">
                   postTotalShares
+                </td>
+                <td class="px-4 py-2 border">
+                  Int
+                </td>
+                <td class="px-4 py-2 border">
+                  <ul>
+                    <li><strong>@default(0)</strong></li>
+                  </ul>
+                </td>
+                <td class="px-4 py-2 border">
+                  <strong>Yes</strong>
+                </td>
+                <td class="px-4 py-2 border">
+                  -
+                </td>
+              </tr>
+
+              <tr id="model-Posts-postReadTime">
+                <td class="px-4 py-2 border">
+                  postReadTime
                 </td>
                 <td class="px-4 py-2 border">
                   Int
@@ -7701,6 +7722,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-IntFilter">IntFilter</a> | Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -7955,6 +7989,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -8261,6 +8308,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -8595,6 +8655,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-IntWithAggregatesFilter">IntWithAggregatesFilter</a> | Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-IntWithAggregatesFilter">IntWithAggregatesFilter</a> | Int
@@ -12530,6 +12603,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -12755,6 +12841,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -12995,6 +13094,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -13253,6 +13365,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -13498,6 +13623,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -13726,6 +13864,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -13922,6 +14073,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -18610,6 +18774,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -18794,6 +18971,19 @@
                   </td>
                 </tr>
 
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
                 </tbody>
               </table>
             </div>
@@ -18879,6 +19069,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -19116,6 +19319,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -19290,6 +19506,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-SortOrder">SortOrder</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     <a href="#type-inputType-SortOrder">SortOrder</a>
@@ -25134,6 +25363,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -25347,6 +25589,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -25858,6 +26113,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    <a href="#type-inputType-IntFilter">IntFilter</a> | Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -26083,6 +26351,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -26296,6 +26577,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -28589,6 +28883,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -28802,6 +29109,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -29228,6 +29548,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -29431,6 +29764,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -29665,6 +30011,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -29912,6 +30271,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -30131,6 +30503,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -30334,6 +30719,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -30568,6 +30966,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -31027,6 +31438,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -31249,6 +31673,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -31485,6 +31922,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int | <a href="#type-inputType-IntFieldUpdateOperationsInput">IntFieldUpdateOperationsInput</a>
@@ -32067,6 +32517,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -33173,6 +33636,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -35028,6 +35504,19 @@
 
                 <tr>
                   <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    <strong>Yes</strong>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
                     postSlug
                   </td>
                   <td class="px-4 py-2 border">
@@ -35224,6 +35713,19 @@
                   </td>
                 </tr>
 
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Float
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
                 </tbody>
               </table>
             </div>
@@ -35269,6 +35771,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -35363,6 +35878,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int
@@ -35587,6 +36115,19 @@
                 <tr>
                   <td class="px-4 py-2 border">
                     postTotalShares
+                  </td>
+                  <td class="px-4 py-2 border">
+                    Int
+                  </td>
+
+                  <td class="px-4 py-2 border">
+                    No
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="px-4 py-2 border">
+                    postReadTime
                   </td>
                   <td class="px-4 py-2 border">
                     Int

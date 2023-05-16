@@ -22,6 +22,9 @@ export class Posts {
   @ApiProperty({ type: Number })
   postTotalShares: number;
 
+  @ApiProperty({ type: Number })
+  postReadTime: number;
+
   @ApiProperty({ type: String })
   postSlug: string;
 
